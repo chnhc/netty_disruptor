@@ -1,0 +1,30 @@
+syntax = "proto3";
+import "User.proto";
+
+// 响应数据
+message ResponseData {
+    // 响应类型
+    ResponseTypes type = 1 ;
+    // 数据
+    string message = 2 ;
+}
+
+// 请求类型
+enum ResponseTypes {
+    // 默认
+    RP_DEFAULT = 0;
+    // 类型一
+    RP_ONE = 1;
+}
+
+// 响应创建房间
+message ResponseRoom {
+    //  0 创建失败  1 创建成功  2 接收数据  3发送成功  4 用户不在聊天室
+    int32 type = 1;
+    // 房间id
+    string roomId = 2;
+    // 发送的信息
+    string message = 3;
+    // 发送者
+    OneUser user = 4;
+}

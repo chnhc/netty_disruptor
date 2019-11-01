@@ -1,0 +1,36 @@
+syntax = "proto3";
+import "google/protobuf/any.proto";
+
+message SearchRequest {
+    repeated string query = 1;
+    int32 page_number = 2;
+    int32 request_per_page = 3;
+    // 网络数据
+    NetworkData data = 4;
+}
+
+// ----------------------------------------------------
+// Data 网络数据
+message NetworkData {
+
+    // 网络字节数据
+    string data = 1;
+
+    // Encryption type
+    Encryption_Type type = 2;
+
+    // 加密类型
+    enum Encryption_Type {
+        // 默认
+        DEFAULt = 0;
+        // 类型1
+        TYPE_ONE = 1;
+        // 类型2
+        TYPE_TWO = 2;
+    }
+}
+
+// ----------------------------------------------------
+message Response {
+    google.protobuf.Any data = 1;
+}

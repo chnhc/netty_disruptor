@@ -1,0 +1,38 @@
+syntax = "proto3";
+import "User.proto";
+
+// 请求数据
+message RequestData {
+    // 请求类型
+    RequestTypes type = 1 ;
+    // 数据
+    string message = 2 ;
+}
+
+// 请求类型
+enum RequestTypes {
+    // 默认
+    RQ_DEFAULT = 0;
+    // 类型一
+    RQ_ONE = 1;
+}
+
+// 用户 -- 请求注册通道
+message RegistryChannel {
+    // 用户ID
+    string userID = 1;
+    // 注册的服务器端口
+    int32 port = 2;
+}
+
+// 发送聊天数据
+message SendChatData {
+    // 0 退出房间  1 加入房间  2 发送消息
+    int32 type = 1;
+    // 房间ID
+    string roomId = 2 ;
+    // 数据
+    string message = 3 ;
+    // 用户信息
+    OneUser user = 4;
+}

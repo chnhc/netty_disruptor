@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+// 用户 数据
+message OneUser {
+    // 用户ID
+   string userID = 1;
+   // 注册的服务器端口
+   int32 port = 2;
+}
+
+
+// 用户数组
+message ManyUser {
+    repeated OneUser users = 1;
+}
